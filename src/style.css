@@ -1,0 +1,45 @@
+.main{
+    width: 700px;
+    border-radius: 15px;
+    background-color: #6a9ec6;
+}
+
+.header{
+    background-color: #706f6f;
+    color: rgb(15, 25, 60);
+    padding: 10px;
+    font-size: 28px;
+    font-weight: 600;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.day{
+    padding: 15px;
+    color: rgb(15, 25, 60);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.mintemp{
+    padding: 15px;
+    color: rgb(15, 25, 60);
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 18px;
+}
+.maxtemp{
+    padding: 15px;
+    color: rgb(15, 25, 60);
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 18px;
+}
+.desc{
+    padding: 15px;
+    color: rgb(15, 25, 60);
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 18px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
