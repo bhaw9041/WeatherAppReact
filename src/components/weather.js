@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import '../style.css'
-import moment from 'moment';
+import moment, { min } from 'moment';
 
 const CardExampleCard = ({ weatherData }) => {
   const [click, setClicked] = useState(false)
   const parsedDateTime = moment(weatherData[0].dt_txt, 'YYYY-MM-DD HH:mm:ss');
+  let minTemp = 100;
+  let maxTemp = -100;
+
+  for(let i = 0; i < weatherData.length; i++){
+    if(weatherData[i].main.temp_min < minTemp){
+      minTemp = weatherData[i].main.temp_min
+    }
+    if(weatherData[i].main.temp_max > maxTemp){
+      maxTemp = weatherData[i].main.temp_max
+    }
+  }
+
   return (
     <div className='cardWrapper'>
       <div className="main" onClick={() => setClicked(!click)}>
@@ -16,25 +28,23 @@ const CardExampleCard = ({ weatherData }) => {
         </div>
 
         <div className="flex">
-          <p className="maxtemp">Max. Temperature: {Math.round(weatherData[0].main.temp_max)} &deg;C</p>
-          <p className="mintemp">Min. Temperature: {Math.round(weatherData[0].main.temp_min)} &deg;C</p>
+          <p className="maxtemp">Max. Temperature: {maxTemp} &deg;C</p>
+          <p className="mintemp">Min. Temperature: {minTemp} &deg;C</p>
         </div>
       </div>
       <div>
         {click && <table>
           <tr>
             <th>Time</th>
-            <th>Min Temp</th>
-            <th>Max Temp</th>
+            <th>Temp</th>
             <th>Weather Description</th>
           </tr>
           {weatherData.map(it => {
             return (
               <tr key={it.dt_txt}>
                 <td>{moment(it.dt_txt, 'YYYY-MM-DD HH:mm:ss').format('LT')}</td>
-                <td>{it.main.temp_min}</td>
-                <td>{it.main.temp_max}</td>
-                <td>{it.weather[0].main} </td>
+                <td>{it.main.temp}</td>
+                <td>{it.weather[0].main}</td>
               </tr>
             )
           })}
