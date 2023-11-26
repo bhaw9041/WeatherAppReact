@@ -43,3 +43,25 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cardWrapper table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .cardWrapper td, .cardWrapper th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .cardWrapper tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .cardWrapper {
+    width: 700px;
+    margin: 20px;
+  }
